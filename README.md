@@ -1,7 +1,11 @@
 ![logo](https://user-images.githubusercontent.com/13404717/59300590-da2b6600-8c8f-11e9-82b2-ab3dc856ffdb.jpeg)
 
 # youtrack-rest-client
-Client library for accessing the [youtrack rest api](https://www.jetbrains.com/help/youtrack/standalone/youtrack-rest-api-reference.html)
+Client library for accessing the [youtrack rest api]
+
+Fork with support for some custom fields.
+
+(https://www.jetbrains.com/help/youtrack/standalone/youtrack-rest-api-reference.html)
 
 [![Build Status](https://travis-ci.com/shanehofstetter/youtrack-rest-client.svg?branch=master)](https://travis-ci.com/shanehofstetter/youtrack-rest-client)
 [![Maintainability](https://api.codeclimate.com/v1/badges/52753e2150c5097069ac/maintainability)](https://codeclimate.com/github/shanehofstetter/youtrack-rest-client/maintainability)

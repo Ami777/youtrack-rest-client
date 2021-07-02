@@ -19,13 +19,13 @@ export class IssueEndpoint extends BaseEndpoint {
         return this.getResourceWithFields<Issue>(this.format(IssuePaths.issue, { issueId }), IssueImpl);
     }
 
-    public search(query: string, paginationOptions: PaginationOptions = {}): Promise<ReducedIssue[]> {
+    public search(query: string, paginationOptions: PaginationOptions = {}, customFields: string[] = []): Promise<ReducedIssue[]> {
         return this.getResourceWithFields<ReducedIssue[]>(IssuePaths.issues, ReducedIssueImpl, {
             qs: {
                 query,
                 ...paginationOptions
             }
-        });
+        }, customFields);
     }
 
     public delete(issueId: string): Promise<any> {

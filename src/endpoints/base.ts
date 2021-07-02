@@ -27,10 +27,10 @@ export class BaseEndpoint {
         return this.toPromise<T>(this.client.post(url, params));
     }
 
-    protected getResourceWithFields<T>(url: string, implementation: new () => object, options: { qs?: GenericObject } = {}): Promise<T> {
+    protected getResourceWithFields<T>(url: string, implementation: new () => object, options: { qs?: GenericObject } = {}, customFields: string[] = []): Promise<T> {
         return this.getResource(url, {
             qs: {
-                fields: generateFieldsQuery(new implementation()),
+                fields: [...customFields, ...generateFieldsQuery(new implementation())],
                 ...(options.qs || {})
             }
         })
