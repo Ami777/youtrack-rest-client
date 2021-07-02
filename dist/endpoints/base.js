@@ -25,7 +25,7 @@ class BaseEndpoint {
     }
     getResourceWithFields(url, implementation, options = {}, customFields = []) {
         return this.getResource(url, {
-            qs: Object.assign({ fields: utils_1.generateFieldsQuery(new implementation()) + ',' + customFields.join(',') }, (options.qs || {}))
+            qs: Object.assign({ fields: utils_1.generateFieldsQuery(new implementation()) + (customFields.length > 0 ? (',' + customFields.join(',')) : '') }, (options.qs || {}))
         });
     }
     postResourceWithFields(url, implementation, options = {}) {
