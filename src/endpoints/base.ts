@@ -30,7 +30,7 @@ export class BaseEndpoint {
     protected getResourceWithFields<T>(url: string, implementation: new () => object, options: { qs?: GenericObject } = {}, customFields: string[] = []): Promise<T> {
         return this.getResource(url, {
             qs: {
-                fields: [...customFields, ...generateFieldsQuery(new implementation())],
+                fields: generateFieldsQuery(new implementation()) + ',' + customFields.join(','),
                 ...(options.qs || {})
             }
         })
