@@ -28,8 +28,8 @@ class BaseEndpoint {
             qs: Object.assign({ fields: utils_1.generateFieldsQuery(new implementation()) + (customFields.length > 0 ? (',' + customFields.join(',')) : '') }, (options.qs || {}))
         });
     }
-    postResourceWithFields(url, implementation, options = {}) {
-        return this.postResource(url, Object.assign(Object.assign({}, options), { qs: Object.assign({ fields: utils_1.generateFieldsQuery(new implementation()) }, (options.qs || {})) }));
+    postResourceWithFields(url, implementation, options = {}, customFields = []) {
+        return this.postResource(url, Object.assign(Object.assign({}, options), { qs: Object.assign({ fields: utils_1.generateFieldsQuery(new implementation()) + (customFields.length > 0 ? (',' + customFields.join(',')) : '') }, (options.qs || {})) }));
     }
 }
 exports.BaseEndpoint = BaseEndpoint;

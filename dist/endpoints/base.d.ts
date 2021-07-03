@@ -15,5 +15,5 @@ export declare class BaseEndpoint {
         qs?: GenericObject;
         body?: any;
         form?: any;
-    }): Promise<T>;
+    }, customFields?: string[]): Promise<T>;
 }

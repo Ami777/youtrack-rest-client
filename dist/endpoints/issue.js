@@ -23,10 +23,10 @@ class IssueEndpoint extends base_1.BaseEndpoint {
     delete(issueId) {
         return this.toPromise(this.client.delete(this.format(exports.IssuePaths.issue, { issueId })));
     }
-    create(issue) {
+    create(issue, customFields = []) {
         return this.postResourceWithFields(exports.IssuePaths.issues, __1.IssueImpl, {
             body: issue
-        });
+        }, customFields);
     }
     update(issue) {
         return this.postResourceWithFields(this.format(exports.IssuePaths.issue, { issueId: issue.id }), __1.IssueImpl, {

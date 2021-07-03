@@ -14,7 +14,7 @@ export declare class IssueEndpoint extends BaseEndpoint {
     byId(issueId: string): Promise<Issue>;
     search(query: string, paginationOptions?: PaginationOptions, customFields?: string[]): Promise<ReducedIssue[]>;
     delete(issueId: string): Promise<any>;
-    create(issue: NewIssue): Promise<Issue>;
+    create(issue: NewIssue, customFields?: string[]): Promise<Issue>;
     update(issue: UpdateIssue): Promise<Issue>;
     executeCommand(command: Command): Promise<CommandList>;
 }

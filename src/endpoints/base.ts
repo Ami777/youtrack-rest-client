@@ -40,11 +40,11 @@ export class BaseEndpoint {
         qs?: GenericObject,
         body?: any,
         form?: any
-    } = {}): Promise<T> {
+    } = {}, customFields: string[] = []): Promise<T> {
         return this.postResource(url, {
             ...options,
             qs: {
-                fields: generateFieldsQuery(new implementation()),
+                fields: generateFieldsQuery(new implementation()) + (customFields.length > 0 ? (',' + customFields.join(',')) : ''),
                 ...(options.qs || {})
             }
         })

@@ -32,10 +32,10 @@ export class IssueEndpoint extends BaseEndpoint {
         return this.toPromise(this.client.delete(this.format(IssuePaths.issue, { issueId })));
     }
 
-    public create(issue: NewIssue): Promise<Issue> {
+    public create(issue: NewIssue, customFields: string[] = []): Promise<Issue> {
         return this.postResourceWithFields<Issue>(IssuePaths.issues, IssueImpl, {
             body: issue
-        });
+        }, customFields);
     }
 
     public update(issue: UpdateIssue): Promise<Issue> {
